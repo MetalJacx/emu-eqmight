@@ -1,0 +1,6 @@
+/pause 25,/cast 1
+/pause 25,/cast 2
+/pause 25,/cast 3
+/pause 25,/cast 4
+
+#May move to a three rotation instead of four. As it seems it recycles after 3 casts.
