@@ -1,0 +1,37 @@
+EQ Might: 
+  Bismuthjacx: 
+    ExampleReact: disabled
+  Cobaltjacx: 
+    ExampleReact: disabled
+  Ironjacx: 
+    ExampleReact: disabled
+  Leadjacx: 
+    ExampleReact: disabled
+  Metaljacx: 
+    ExampleReact: disabled
+  Nickeljacx: 
+    ExampleReact: disabled
+  Platjacx: 
+    ExampleReact: disabled
+  Steeljacx: 
+    BHeal: enabled
+    ExampleReact: disabled
+  Zincjacx: 
+    ExampleReact: disabled
+globals: 
+  BH: Complete Heal
+  BHP: 80
+reacts: 
+  BHeal: 
+    action: >-
+      /multiline ; /g Canceling ${React.Global[BH]} on ${Target.Name},
+      Not Enough Missing HPs ; /stopcast
+    condition: >-
+      ${Cast.Effect.Name.Equal[${React.Global[BH]}]} && ${Target.PctHPs}
+      > ${React.Global[BHP]}
+  ExampleReact: 
+    action: >-
+      /multiline ; /echo Default Example react Disables itself when you're
+      at 100%HP and out of Combat ; /delay 5 ; /react disable ExampleReact
+    condition: "${Me.PctHPs} == 100 && ${Me.CombatState.NotEqual[COMBAT]}"
+sleep_frames: 15
